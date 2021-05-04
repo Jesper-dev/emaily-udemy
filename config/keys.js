@@ -1,7 +1,7 @@
-if (process.env.NODE.env === "production") {
+if (process.env.NODE.env == "production") {
   // We are in production
-  module.exports = require("./prod");
+  module.exports = require("./prod.js");
 } else {
   // We are in development
-  module.exports = require("./dev");
+  module.exports = require("./dev.js");
 }
