@@ -15,13 +15,15 @@ passport.deserializeUser((id, done) => {
   });
 });
 
+// mongodb+srv://dbUser:3CeJxTiKZRWMBPx8@cluster0.cvami.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
+
 passport.use(
   new GoogleStrategy(
     {
       clientID: keys.googleClientID,
       clientSecret: keys.googleClientSecret,
       callbackURL: "/auth/google/callback",
-      proxy: true,
+      proxy: false,
     },
     (accessToken, refreshToken, profile, done) => {
       User.findOne({ googleId: profile.id }).then((existingUser) => {
